@@ -1,0 +1,298 @@
+/* ================================================ */
+/* === 基本設定 === */
+/* ================================================ */
+:root {
+    --color-bg: #ffffff;
+    --color-text: #1a1a2e;
+    --color-primary: #ff007f;
+    --color-secondary: #4a00e0;
+    --font-family: 'Noto Sans JP', sans-serif; 
+}
+
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    margin: 0;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 10% 10%, rgba(255, 0, 127, 0.05), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(74, 0, 224, 0.05), transparent 40%);
+    padding-top: 90px;
+}
+main > section {
+    padding: 100px 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-family);
+    font-weight: 900;
+    line-height: 1.2;
+}
+h2.section-title {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--color-text);
+    transform: rotate(-2deg);
+    display: inline-block;
+    border-bottom: 10px solid var(--color-primary);
+}
+.section-title-wrapper { text-align: center; }
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+a:hover { color: var(--color-secondary); }
+
+/* ================================================ */
+/* === ヒーローセクション === */
+/* ================================================ */
+.hero-section {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 90px);
+    padding: 50px 5%;
+}
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.hero-content {
+    flex-basis: 55%;
+    transform: rotate(-3deg);
+}
+.hero-catchcopy {
+    font-size: 5rem;
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+.hero-catchcopy .highlight {
+    color: transparent;
+    -webkit-text-stroke: 3px var(--color-primary);
+    text-stroke: 3px var(--color-primary);
+}
+.hero-subcopy {
+    font-size: 1.2rem; margin-top: 20px; color: var(--color-bg); background: var(--color-primary); padding: 5px 15px; display: inline-block;
+}
+
+/* ヒーロー内の注目記事カード */
+.hero-featured-card {
+    flex-basis: 35%;
+    border: 3px solid var(--color-text);
+    background: white;
+    box-shadow: 10px 10px 0 var(--color-secondary);
+    padding: 20px;
+    transform: rotate(2.5deg);
+    transition: all 0.3s ease;
+    position: relative;
+    color: var(--color-text); /* Ensure link text inside is styled correctly */
+    text-decoration: none;
+}
+.hero-featured-card:hover {
+    transform: rotate(0) scale(1.05);
+}
+.hero-featured-card .pickup-label {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 900;
+    padding: 5px 15px;
+    font-size: 1rem;
+    transform: rotate(-5deg);
+}
+.hero-featured-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.hero-featured-card h3 {
+    font-size: 1.4rem;
+    margin: 15px 0 10px 0;
+}
+.hero-featured-card .readmore {
+    display: block;
+    text-align: right;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ================================================ */
+/* === 新着記事セクション === */
+/* ================================================ */
+#new-articles {
+    padding-top: 0;
+    padding-bottom: 50px;
+    background: rgba(0,0,0,0.03);
+}
+.new-articles-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 20px 0;
+    scrollbar-width: none;
+}
+.new-articles-container::-webkit-scrollbar {
+    display: none;
+}
+.new-article-card {
+    flex: 0 0 300px;
+    background: white;
+    border: 2px solid var(--color-text);
+    box-shadow: 5px 5px 0 var(--color-secondary);
+    transition: all 0.3s ease;
+}
+.new-article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0 var(--color-primary);
+}
+.new-article-card img {
+    width: 100%; height: 160px; object-fit: cover;
+}
+.new-article-card .card-content {
+    padding: 15px;
+}
+.new-article-card .card-meta {
+    font-size: 0.8rem;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.new-article-card .card-category {
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+.new-article-card h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 700;
+}
+.new-article-card a {
+    text-decoration: none;
+    color: inherit;
+}
+    
+/* ================================================ */
+/* === カテゴリセクション === */
+/* ================================================ */
+.category-section-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 800px;
+}
+.category-card {
+    position: absolute;
+    background: white;
+    border: 3px solid var(--color-text);
+    box-shadow: 10px 10px 0 var(--color-secondary);
+    padding: 25px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.category-card:hover {
+    transform: scale(1.1) rotate(5deg) !important;
+    box-shadow: 20px 20px 0 var(--color-primary);
+    z-index: 10;
+}
+.category-card h3 {
+    font-size: 1.8rem; color: var(--color-text); margin-top: 0; padding-bottom: 5px; border-bottom: 3px solid var(--color-secondary); display: inline-block;
+}
+#trends    { top: 5%; left: 5%; width: 30%; transform: rotate(-5deg); }
+#knowhow   { top: 0%; left: 50%; width: 45%; transform: rotate(4deg); }
+#cases     { top: 40%; left: 15%; width: 35%; transform: rotate(6deg); }
+#tools     { top: 35%; left: 60%; width: 25%; transform: rotate(-3deg); }
+#interviews{ top: 65%; left: 40%; width: 40%; transform: rotate(2deg); }
+
+/* ================================================ */
+/* === ピックアップ & CTA === */
+/* ================================================ */
+.pickup-section { background: #fff; }
+.pickup-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; max-width: 1400px; margin: 0 auto;
+}
+.pickup-article a { display: block; text-decoration: none; color: inherit;}
+.pickup-article .img-wrapper {
+    background-color: var(--color-secondary);
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 90%);
+    transition: all 0.4s ease;
+}
+.pickup-article img {
+    width: 100%; height: 250px; object-fit: cover; display: block;
+    mix-blend-mode: luminosity;
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+.pickup-article:hover .img-wrapper { clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%); }
+.pickup-article:hover img { mix-blend-mode: normal; opacity: 1; }
+.article-body { padding: 20px 10px; }
+.article-body h3 { font-size: 1.6rem; color: var(--color-text); }
+.cta-message { text-align: center; font-size: 1.5rem; max-width: 700px; margin: -30px auto 50px auto; }
+.cta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+.cta-card {
+    background: white; border: 3px solid var(--color-text); padding: 40px; text-align: center;
+    transform: skew(-5deg);
+    transition: all 0.3s ease;
+}
+.cta-card:hover { transform: skew(5deg); }
+.cta-card h3, .cta-card p, .cta-card .btn { transform: skew(5deg); }
+.btn {
+    display: inline-block; padding: 15px 40px; font-weight: 900;
+    text-align: center; transition: all 0.3s ease; cursor: pointer;
+    font-size: 1.2rem;
+    background-color: var(--color-primary); color: white;
+    border: 3px solid var(--color-text);
+    box-shadow: 5px 5px 0 var(--color-text);
+}
+.btn:hover { background-color: var(--color-secondary); box-shadow: -5px -5px 0 var(--color-text); }
+
+
+/* ================================================ */
+/* === レスポンシブ対応 === */
+/* ================================================ */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        transform: rotate(0);
+        margin-bottom: 40px;
+    }
+    .hero-catchcopy { font-size: 3.5rem; }
+    .hero-featured-card {
+        transform: rotate(0);
+        width: 80%;
+        max-width: 400px;
+    }
+}
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    .site-header { height: 70px; padding: 10px 5%; }
+    .global-nav { display: none; }
+    h2.section-title { font-size: 2.5rem; }
+    .category-section-wrapper { height: auto; }
+    .category-card {
+        position: relative;
+        width: auto;
+        left: auto; top: auto;
+        transform: rotate(0) !important;
+        margin-bottom: 30px;
+    }
+    .cta-card, .cta-card h3, .cta-card p, .btn { transform: skew(0); }
+}
