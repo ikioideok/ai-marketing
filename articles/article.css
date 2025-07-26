@@ -170,6 +170,16 @@
     margin: 0;
 }
 
+/* 画像がコンテナからはみ出さないようにするスタイルを追加 */
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
 /* レスポンシブ */
 @media(max-width: 768px) {
     .article-header .article-title {
