@@ -258,11 +258,11 @@ a:hover { color: var(--color-secondary); }
 .category-card p {
     color: #000000;
 }
-#trends    { top: 5%; left: 5%; width: 30%; transform: rotate(-5deg); }
-#knowhow   { top: 0%; left: 50%; width: 45%; transform: rotate(4deg); }
-#cases     { top: 40%; left: 15%; width: 35%; transform: rotate(6deg); }
-#tools     { top: 35%; left: 60%; width: 25%; transform: rotate(-3deg); }
-#interviews{ top: 65%; left: 40%; width: 40%; transform: rotate(2deg); }
+#trends { top: 5%; left: 5%; width: 30%; transform: rotate(-5deg); }
+#knowhow { top: 0%; left: 50%; width: 45%; transform: rotate(4deg); }
+#cases { top: 40%; left: 15%; width: 35%; transform: rotate(6deg); }
+#tools { top: 35%; left: 60%; width: 25%; transform: rotate(-3deg); }
+#interviews { top: 65%; left: 40%; width: 40%; transform: rotate(2deg); }
 
 /* ================================================ */
 /* === ピックアップ & CTA === */
