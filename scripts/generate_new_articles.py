@@ -59,7 +59,29 @@ def generate_article_card_html(article):
                     </div>'''
 
 def main():
-    project_root = "/Users/mizumayuuki/オウンドメディア/"
+    """
+    Entry point for regenerating the NEW ARTICLES section on the index page.
+
+    The script no longer relies on a hard‑coded absolute project path. Instead it
+    determines the project root dynamically based on its own location. By
+    default, the project root is assumed to be the parent directory of the
+    directory containing this script (i.e. ``scripts/``).
+
+    You can override this behaviour by setting the ``PROJECT_ROOT``
+    environment variable or passing a command line argument ``--project-root``
+    (not yet implemented). This makes the script portable across different
+    environments and users.
+    """
+    # Determine the project root relative to this file. ``__file__`` points
+    # to ``.../scripts/generate_new_articles.py``; going up one directory
+    # yields ``.../<project_root>``.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.environ.get('PROJECT_ROOT', os.path.abspath(os.path.join(script_dir, '..')))
+
+    # Directories containing article HTML files. The site may include
+    # standalone articles under ``articles/`` as well as category pages under
+    # ``pages/categories``. If an ``articles`` directory does not exist,
+    # globbing will simply return an empty list.
     articles_dir = os.path.join(project_root, 'articles')
     pages_categories_dir = os.path.join(project_root, 'pages', 'categories')
     index_html_path = os.path.join(project_root, 'index.html')
@@ -72,6 +94,12 @@ def main():
     for file_path in all_article_files:
         try:
             data = extract_article_data(file_path)
+            # Adjust the ``path`` so that links from ``index.html`` work
+            # regardless of where the article resides. We generate a
+            # path relative to the project root (where ``index.html``
+            # lives). This ensures that cards in ``index.html`` link
+            # correctly into ``pages/categories`` or ``articles``.
+            data['path'] = os.path.relpath(file_path, start=project_root)
             articles_data.append(data)
         except Exception as e:
             print(f"Error processing {file_path}: {e}")
